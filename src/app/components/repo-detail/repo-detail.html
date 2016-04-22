@@ -1,0 +1,6 @@
+<h2>{{ repoDetails.full_name }}</h2>
+
+<input type="text" [(ngModel)]="repoModel.fullName" placeholder="Enter new repo name...">
+<button (click)="updateName()">Update Name</button>
+
+<pre>this.repoDetails = {{ repoDetails | json }}</pre>
