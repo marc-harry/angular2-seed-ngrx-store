@@ -1,8 +1,8 @@
 ## angular2-seed
 
-A simple starter project demonstrating the basic concepts of Angular 2.
+A simple starter project demonstrating the basic concepts of Angular 2 with routing and [@ngrx/store](https://github.com/ngrx/store).
 
-This branch uses [Webpack](https://webpack.github.io/) for Development. There is also a SystemJS branch available.
+This project uses [Webpack](https://webpack.github.io/).
 
 ### Usage
 - Clone or fork this repository
