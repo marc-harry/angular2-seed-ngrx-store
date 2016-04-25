@@ -10,7 +10,7 @@ import {IAppStore} from '../../IAppStore';
   selector: 'repo-list',
   templateUrl: 'app/components/repo-list/repo-list.html',
   styleUrls: ['app/components/repo-list/repo-list.css'],
-  providers: [RepoService],
+  providers: [],
   directives: [ ROUTER_DIRECTIVES ],
   pipes: []
 })

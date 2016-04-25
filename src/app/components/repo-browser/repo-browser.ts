@@ -11,7 +11,7 @@ import {Github} from '../../services/github';
   selector: 'repo-browser',
   templateUrl: 'app/components/repo-browser/repo-browser.html',
   styleUrls: ['app/components/repo-browser/repo-browser.css'],
-  providers: [ Github ],
+  providers: [],
   directives: [ ROUTER_DIRECTIVES ],
   pipes: []
 })

@@ -11,7 +11,7 @@ import {UPDATE_FULLNAME} from '../../constants/selectedRepoActionTypes';
   selector: 'repo-detail',
   templateUrl: 'app/components/repo-detail/repo-detail.html',
   styleUrls: ['app/components/repo-detail/repo-detail.css'],
-  providers: [RepoService],
+  providers: [],
   directives: [ ROUTER_DIRECTIVES ],
   pipes: []
 })
