@@ -1,5 +1,5 @@
-import {Injectable} from 'angular2/core';
-import {Http, URLSearchParams} from 'angular2/http';
+import {Injectable} from '@angular/core';
+import {Http, URLSearchParams} from '@angular/http';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {IAppStore} from '../IAppStore';

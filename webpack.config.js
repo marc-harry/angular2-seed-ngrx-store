@@ -52,7 +52,7 @@ var defaultConfig = {
     ],
     noParse: [
       path.join(__dirname, 'node_modules', 'zone.js', 'dist'),
-      path.join(__dirname, 'node_modules', 'angular2', 'bundles')
+      path.join(__dirname, 'node_modules', '@angular', 'bundles')
     ]
   },
 
