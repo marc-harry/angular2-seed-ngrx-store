@@ -21,7 +21,7 @@ export class RepoDetail {
   repoModel: {fullName: string;} = {fullName: ""};
   org: string = "";
   name: string = "";
-  constructor(public routeParams:RouteParams, public repoService: RepoService, public store: Store<IAppStore>) {}
+  constructor(public routeParams: RouteParams, public repoService: RepoService, public store: Store<IAppStore>) {}
 
   ngOnInit() {
     this.org = this.routeParams.get('org');
