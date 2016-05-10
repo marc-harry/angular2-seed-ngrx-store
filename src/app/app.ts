@@ -14,7 +14,7 @@ import {RepoBrowser} from './components/repo-browser/repo-browser';
   styles: [
     require('normalize.css'),
   ],
-  templateUrl: 'app/app.html',
+  template: require('./app.html'),
 })
 @RouteConfig([
   { path: '/home',       component: Home,        name: 'Home', useAsDefault: true },
