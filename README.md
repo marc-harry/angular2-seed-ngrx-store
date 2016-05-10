@@ -17,4 +17,4 @@ Based on [angular2-seed](https://github.com/angular/angular2-seed).
 ### Docker Usage
 - run `docker build -t <your-name>/angular2-seed-ngrx-store .`
 - run `docker run -d --name ng2 -p 80:80 <your-name>/angular2-seed-ngrx-store`
-- open browser to http://<your-docker-ip>
+- open browser to `http://<your-docker-ip>`
