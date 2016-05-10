@@ -13,3 +13,8 @@ Based on [angular2-seed](https://github.com/angular/angular2-seed).
 - run `npm install` to install dependencies
 - run `npm start` to fire up dev server
 - open browser to [`http://localhost:3000`](http://localhost:3000)
+
+### Docker Usage
+- run `docker build -t <your-name>/angular2-seed-ngrx-store .`
+- run `docker run -d --name ng2 -p 80:80 <your-name>/angular2-seed-ngrx-store`
+- open browser to http://<your-docker-ip>
