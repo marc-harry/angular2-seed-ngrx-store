@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {RouteParams, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {RouteSegment, ROUTER_DIRECTIVES} from '@angular/router';
 import {Http} from '@angular/http';
 import {RepoService} from '../../services/repoService';
 import {Observable} from 'rxjs';
@@ -21,11 +21,11 @@ export class RepoDetail {
   repoModel: {fullName: string;} = {fullName: ""};
   org: string = "";
   name: string = "";
-  constructor(public routeParams: RouteParams, public repoService: RepoService, public store: Store<IAppStore>) {}
+  constructor(public curr: RouteSegment, public repoService: RepoService, public store: Store<IAppStore>) {}
 
   ngOnInit() {
-    this.org = this.routeParams.get('org');
-    this.name = this.routeParams.get('name');
+    this.org = this.curr.getParam('org');
+    this.name = this.curr.getParam('name');
     this.repo = this.store.select(s => s.selectedRepo); 
     this.repo.subscribe(r => {
       if (r !== null) {

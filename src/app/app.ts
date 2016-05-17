@@ -1,5 +1,5 @@
 import {Component, ViewEncapsulation} from '@angular/core';
-import {Router, RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {Router, Routes, ROUTER_DIRECTIVES} from '@angular/router';
 
 import {Home} from './components/home/home';
 import {About} from './components/about/about';
@@ -16,10 +16,11 @@ import {RepoBrowser} from './components/repo-browser/repo-browser';
   ],
   template: require('./app.html'),
 })
-@RouteConfig([
-  { path: '/home',       component: Home,        name: 'Home', useAsDefault: true },
-  { path: '/about',      component: About,       name: 'About' },
-  { path: '/github/...', component: RepoBrowser, name: 'RepoBrowser' },
+@Routes([
+  { path: '/home',       component: Home },
+  { path: '/about',      component: About },
+  { path: '/github', component: RepoBrowser },
+  { path: '*', component: Home }
 ])
 export class App {
 

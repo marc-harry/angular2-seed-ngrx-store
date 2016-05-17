@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {RouteParams, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {RouteSegment, ROUTER_DIRECTIVES, Router} from '@angular/router';
 
 import {RepoService} from '../../services/repoService';
 import {Store} from '@ngrx/store';
@@ -16,10 +16,18 @@ import {IAppStore} from '../../IAppStore';
 })
 export class RepoList {
   repos: Observable<any>
-  constructor(public repoService: RepoService, public params: RouteParams, private store: Store<IAppStore>) {}
+  constructor(public repoService: RepoService, private router: Router, public curr: RouteSegment, private store: Store<IAppStore>) {}
 
   ngOnInit() {
     this.repos = this.store.select(s => s.repos);
-    this.repoService.loadRepos(this.params.get('org'));
+    this.repoService.loadRepos(this.curr.getParam('org'));
+  }
+  
+  public loadDetails(org: string, name: string) {
+      this.router.navigateByUrl(`/github/${org}/${name}`);
+  }
+  
+  public loadOwners(org: string, name: string) {
+    this.router.navigate([`/github/${org}/${name}/owners`], this.curr);
   }
 }

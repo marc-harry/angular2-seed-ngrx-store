@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router, RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {Router, Routes, RouteSegment, RouteTree, ROUTER_DIRECTIVES} from '@angular/router';
 
 import {RepoList} from '../repo-list/repo-list';
 import {RepoDetail} from '../repo-detail/repo-detail';
@@ -15,21 +15,24 @@ import {Github} from '../../services/github';
   directives: [ ROUTER_DIRECTIVES ],
   pipes: []
 })
-@RouteConfig([
-	{path: '/:org',       component: RepoList,   name: 'RepoList'},
-	{path: '/:org/:name', component: RepoDetail, name: 'RepoDetail' },
-  {path: '/:org/:name/owner', component: RepoOwner, name: 'RepoOwner' },
+@Routes([
+	{path: '/:org',       component: RepoList },
+	{path: '/:org/:name', component: RepoDetail },
+  {path: '/:org/:name/owner', component: RepoOwner },
 ])
 export class RepoBrowser {
-
+  private currSegment: RouteSegment;
   constructor(private router:Router, private github: Github) {}
 
   searchForOrg(orgName: string){
     this.github.getOrg(orgName)
       .subscribe(({name}) => {
         console.log(name);
-        this.router.navigate(['RepoList', {org: orgName}])
+        this.router.navigate([`./${orgName}`], this.currSegment);
       })
   }
 
+  routerOnActivate(curr: RouteSegment, prev: RouteSegment, currTree: RouteTree) {
+    this.currSegment = curr;
+  }
 }
