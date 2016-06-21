@@ -1,6 +1,6 @@
 {
   "name": "angular2-seed-ngrx-store",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simple starter Angular2 project with @ngrx/store",
   "scripts": {
     "typings-install": "node node_modules/typings/dist/bin.js install",
@@ -45,6 +45,7 @@
   },
   "keywords": [
     "Angular2",
+    "Angular 2",
     "angular2-seed",
     "angular 2 seed",
     "angular2 seed",
