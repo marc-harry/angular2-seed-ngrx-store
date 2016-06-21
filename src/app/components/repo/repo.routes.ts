@@ -5,6 +5,12 @@ import {RepoList} from './repo-list/repo-list';
 import {RepoDetail} from './repo-detail/repo-detail';
 import {RepoOwner} from './repo-owner/repo-owner';
 
+import {RepoGuard} from './repo.guard';
+
+export const RepoGuards = [
+    RepoGuard
+];
+
 export const RepoRoutes: RouterConfig = [
     {
         path: 'github',
@@ -12,7 +18,11 @@ export const RepoRoutes: RouterConfig = [
         children: [
             {path: ':org',       component: RepoList },
 	        {path: ':org/:name', component: RepoDetail },
-            {path: ':org/:name/owner', component: RepoOwner }
+            {
+                path: ':org/:name/owner', 
+                component: RepoOwner, 
+                canActivate: [RepoGuard] 
+            }
         ]
     }
 ];
