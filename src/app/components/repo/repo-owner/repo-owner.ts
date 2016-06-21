@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {ActivatedRoute, ROUTER_DIRECTIVES} from '@angular/router';
 import {Http} from '@angular/http';
 import {Github} from '../../../services/github';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'repo-owner',
@@ -16,7 +17,7 @@ export class RepoOwner {
   org: string = "";
   name: string = "";
   owner = {};
-  sub: any;
+  sub: Subscription;
   constructor(public curr:ActivatedRoute, public github: Github) {}
 
   ngOnInit() {
@@ -31,4 +32,10 @@ export class RepoOwner {
           });
     });
   }
- }
+
+  ngOnDestroy() {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
+  }
+}

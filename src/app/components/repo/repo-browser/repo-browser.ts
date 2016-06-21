@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router, ROUTER_DIRECTIVES} from '@angular/router';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 
 import {RepoList} from '../repo-list/repo-list';
 import {RepoDetail} from '../repo-detail/repo-detail';
@@ -16,7 +16,7 @@ import {Github} from '../../../services/github';
   pipes: []
 })
 export class RepoBrowser {
-  constructor(private router:Router, private github: Github) {}
+  constructor(private github: Github) {}
 
   searchForOrg(orgName: string){
     this.github.getOrg(orgName)

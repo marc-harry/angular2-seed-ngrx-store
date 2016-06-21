@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import {Observable, Subscription} from 'rxjs';
 import {ROUTER_DIRECTIVES, Router, ActivatedRoute} from '@angular/router';
 
 import {RepoService} from '../../../services/repoService';
@@ -16,7 +16,7 @@ import {IAppStore} from '../../../IAppStore';
 })
 export class RepoList {
   repos: Observable<any>
-  sub: any;
+  sub: Subscription;
   org: string;
   constructor(public repoService: RepoService, private router: Router, public curr: ActivatedRoute, private store: Store<IAppStore>) {}
 
@@ -26,6 +26,12 @@ export class RepoList {
       this.org = params['org'];
       this.repoService.loadRepos(this.org);
     });
+  }
+
+  ngOnDestroy() {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
   
   public loadDetails(org: string, name: string) {

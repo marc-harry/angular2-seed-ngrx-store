@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {ROUTER_DIRECTIVES, ActivatedRoute} from '@angular/router';
 import {Http} from '@angular/http';
 import {RepoService} from '../../../services/repoService';
-import {Observable} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {IAppStore} from '../../../IAppStore';
 import {UPDATE_FULLNAME} from '../../../constants/selectedRepoActionTypes';
@@ -21,7 +21,7 @@ export class RepoDetail {
   repoModel: {fullName: string;} = {fullName: ""};
   org: string = "";
   name: string = "";
-  sub: any;
+  sub: Subscription;
   constructor(public curr: ActivatedRoute, public repoService: RepoService, public store: Store<IAppStore>) {}
 
   ngOnInit() {
@@ -38,6 +38,12 @@ export class RepoDetail {
         this.repoDetails = r;
       }
     });
+  }
+
+  ngOnDestroy() {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
   
   updateName() {
