@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
-import {RouteSegment, ROUTER_DIRECTIVES} from '@angular/router';
+import {ROUTER_DIRECTIVES, ActivatedRoute} from '@angular/router';
 import {Http} from '@angular/http';
-import {RepoService} from '../../services/repoService';
+import {RepoService} from '../../../services/repoService';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
-import {IAppStore} from '../../IAppStore';
-import {UPDATE_FULLNAME} from '../../constants/selectedRepoActionTypes';
+import {IAppStore} from '../../../IAppStore';
+import {UPDATE_FULLNAME} from '../../../constants/selectedRepoActionTypes';
 
 @Component({
   selector: 'repo-detail',
@@ -21,18 +21,23 @@ export class RepoDetail {
   repoModel: {fullName: string;} = {fullName: ""};
   org: string = "";
   name: string = "";
-  constructor(public curr: RouteSegment, public repoService: RepoService, public store: Store<IAppStore>) {}
+  sub: any;
+  constructor(public curr: ActivatedRoute, public repoService: RepoService, public store: Store<IAppStore>) {}
 
   ngOnInit() {
-    this.org = this.curr.getParam('org');
-    this.name = this.curr.getParam('name');
+    this.sub = this.curr.params.subscribe(params => {
+      this.org = params['org'];
+      this.name = params['name'];
+
+      this.repoService.getRepo(this.org, this.name);
+    });
+
     this.repo = this.store.select(s => s.selectedRepo); 
     this.repo.subscribe(r => {
       if (r !== null) {
         this.repoDetails = r;
       }
     });
-    this.repoService.getRepo(this.org, this.name);
   }
   
   updateName() {

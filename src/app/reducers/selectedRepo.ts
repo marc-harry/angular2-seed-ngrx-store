@@ -1,8 +1,8 @@
-import {Reducer, Action} from '@ngrx/store';
+import {ActionReducer, Action} from '@ngrx/store';
 
 import {SELECT_REPO, UPDATE_FULLNAME} from '../constants/selectedRepoActionTypes';
 
-export const selectedRepo: Reducer<any> = (state: any = null, action: Action) => {
+export const selectedRepo: ActionReducer<any> = (state: any = null, action: Action) => {
     switch (action.type) {
         case SELECT_REPO:
             return action.payload;

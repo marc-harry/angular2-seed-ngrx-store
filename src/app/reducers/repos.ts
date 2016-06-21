@@ -1,8 +1,8 @@
-import {Reducer, Action} from '@ngrx/store';
+import {ActionReducer, Action} from '@ngrx/store';
 
 import {ADD_ITEMS, REMOVE_ALL_ITEMS} from '../constants/repoActionTypes';
 
-export const repos: Reducer<Array<any>> = (state: Array<any> = [], action: Action) => {
+export const repos: ActionReducer<Array<any>> = (state: Array<any> = [], action: Action) => {
     switch (action.type) {
         case ADD_ITEMS:
             return action.payload;

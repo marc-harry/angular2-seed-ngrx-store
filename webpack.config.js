@@ -48,6 +48,7 @@ var defaultConfig = {
         loader: 'source-map-loader',
         exclude: [
           // these packages have problems with their sourcemaps
+          path.join(__dirname, 'node_modules', '@ngrx'),
           path.join(__dirname, 'node_modules', 'rxjs'),
           path.join(__dirname, 'node_modules', '@angular2-material'),
         ]

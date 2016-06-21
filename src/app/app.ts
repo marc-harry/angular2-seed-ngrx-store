@@ -1,9 +1,5 @@
 import {Component, ViewEncapsulation} from '@angular/core';
-import {Router, Routes, ROUTER_DIRECTIVES} from '@angular/router';
-
-import {Home} from './components/home/home';
-import {About} from './components/about/about';
-import {RepoBrowser} from './components/repo-browser/repo-browser';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 
 @Component({
   selector: 'app',
@@ -16,14 +12,9 @@ import {RepoBrowser} from './components/repo-browser/repo-browser';
   ],
   template: require('./app.html'),
 })
-@Routes([
-  { path: '/home',       component: Home },
-  { path: '/about',      component: About },
-  { path: '/github', component: RepoBrowser },
-  { path: '*', component: Home }
-])
 export class App {
 
-  constructor() {}
+  constructor() {
+  }
 
 }
