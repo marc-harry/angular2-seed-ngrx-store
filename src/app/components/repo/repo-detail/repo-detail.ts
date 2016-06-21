@@ -7,12 +7,19 @@ import {Store} from '@ngrx/store';
 import {IAppStore} from '../../../IAppStore';
 import {UPDATE_FULLNAME} from '../../../constants/selectedRepoActionTypes';
 
+import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
+import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
+
 @Component({
   selector: 'repo-detail',
   template: require('./repo-detail.html'),
   styles: [require('./repo-detail.css')],
   providers: [],
-  directives: [ ROUTER_DIRECTIVES ],
+  directives: [ 
+    ROUTER_DIRECTIVES,
+    MD_INPUT_DIRECTIVES,
+    MD_BUTTON_DIRECTIVES
+  ],
   pipes: []
 })
 export class RepoDetail {

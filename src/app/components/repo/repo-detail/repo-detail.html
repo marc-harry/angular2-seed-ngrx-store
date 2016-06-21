@@ -1,6 +1,6 @@
 <h2>{{ repoDetails.full_name }}</h2>
 
-<input type="text" [(ngModel)]="repoModel.fullName" (keyup.enter)="updateName()" placeholder="Enter new repo name...">
-<button (click)="updateName()">Update Name</button>
+<md-input placeholder="Enter new repo name..." [(ngModel)]="repoModel.fullName" (keyup.enter)="updateName()"></md-input>
+<button md-raised-button color="primary" (click)="updateName()">Update Name</button>
 
 <pre>this.repoDetails = {{ repoDetails | json }}</pre>
