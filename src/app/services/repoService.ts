@@ -4,30 +4,37 @@ import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {IAppStore} from '../IAppStore';
 
-import {Github} from './github';
 import {REMOVE_ALL_ITEMS, ADD_ITEMS} from '../constants/repoActionTypes';
 import {SELECT_REPO} from '../constants/selectedRepoActionTypes';
 
+import { BaseService } from './baseService';
+
 @Injectable()
-export class RepoService {
-    repos: Observable<Array<any>>;
-    activeRepo: Observable<any>;
-    
-	constructor(private github: Github, private store: Store<IAppStore>) {
-        this.repos = store.select(s => s.repos);
-        this.activeRepo = store.select(s => s.selectedRepo);
+export class RepoService extends BaseService {    
+	constructor(store: Store<IAppStore>, http: Http) {
+        super(store, http);
     }
-    
+
+    getOrg(org:string) {
+		return this.getRequest('https://api.github.com', `orgs/${org}`);
+	}
+
     loadRepos(org: string) {
         this.store.dispatch({ type: REMOVE_ALL_ITEMS });
-        this.github.getReposForOrg(org).subscribe(repos => {
+        this.fireGet('https://api.github.com', `orgs/${org}/repos`, [{key: 'per_page', value: '100'}], repos => {
             this.store.dispatch({type: ADD_ITEMS, payload: repos});
         });
+        // Two alternative ways of making requests
+        // this.getRequest('https://api.github.com', `orgs/${org}/repos`, [{key: 'per_page', value: '100'}])
+        //     .subscribe(repos => {
+        //         this.store.dispatch({type: ADD_ITEMS, payload: repos});
+        //     });
     }
     
     getRepo(org: string, repoName: string) {
-        this.github.getRepoForOrg(org, repoName).subscribe(repo => {
-           this.store.dispatch({type:SELECT_REPO, payload: repo}); 
-        });
+        this.getRequest('https://api.github.com', `repos/${org}/${repoName}`)
+            .subscribe(repo => {
+                this.store.dispatch({type:SELECT_REPO, payload: repo});
+            });
     }
 }
