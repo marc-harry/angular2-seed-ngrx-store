@@ -1,9 +1,7 @@
 import { provideRouter } from '@angular/router';
 
-import { AppRoutes } from "./app/app.routes";
+import { AppRoutes, Home } from "./app/app.routes";
 import { RepoRoutes, RepoGuards } from "./app/components/repo/repo.routes";
-
-import {Home} from './app/components/home/home';
 
 export const routes = [
     ...AppRoutes,
