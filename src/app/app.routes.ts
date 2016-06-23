@@ -6,5 +6,5 @@ import {About} from './components/about/about';
 export const AppRoutes: RouterConfig = [
     { path: '',         component: Home},
     { path: 'home',     component: Home },
-    { path: 'about',    component: About },
+    { path: 'about',    component: About }
 ];

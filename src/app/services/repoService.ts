@@ -4,8 +4,8 @@ import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {IAppStore} from '../IAppStore';
 
-import {REMOVE_ALL_ITEMS, ADD_ITEMS} from '../constants/repoActionTypes';
-import {SELECT_REPO} from '../constants/selectedRepoActionTypes';
+import {REMOVE_ALL_ITEMS, ADD_ITEMS} from '../actions/repoActionTypes';
+import {SELECT_REPO} from '../actions/selectedRepoActionTypes';
 
 import { BaseService } from './baseService';
 
@@ -24,11 +24,6 @@ export class RepoService extends BaseService {
         this.fireGet('https://api.github.com', `orgs/${org}/repos`, [{key: 'per_page', value: '100'}], repos => {
             this.store.dispatch({type: ADD_ITEMS, payload: repos});
         });
-        // Two alternative ways of making requests
-        // this.getRequest('https://api.github.com', `orgs/${org}/repos`, [{key: 'per_page', value: '100'}])
-        //     .subscribe(repos => {
-        //         this.store.dispatch({type: ADD_ITEMS, payload: repos});
-        //     });
     }
     
     getRepo(org: string, repoName: string) {

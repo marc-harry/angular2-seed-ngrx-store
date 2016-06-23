@@ -5,7 +5,7 @@ import {RepoService} from '../../../services/repoService';
 import {Observable, Subscription} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {IAppStore} from '../../../IAppStore';
-import {UPDATE_FULLNAME} from '../../../constants/selectedRepoActionTypes';
+import {UPDATE_FULLNAME} from '../../../actions/selectedRepoActionTypes';
 
 import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';

@@ -7,7 +7,7 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 import {App} from './app/app';
 
-import {selectedRepo, repos} from './app/reducers';
+import {rootReducer} from './app/reducers';
 import {APP_SERVICES} from './app/services';
 import { APP_ROUTER_PROVIDERS } from './routes';
 
@@ -16,7 +16,7 @@ bootstrap(App, [
   ...ROUTER_DIRECTIVES,  
   APP_ROUTER_PROVIDERS,
   provide(LocationStrategy, {useClass: HashLocationStrategy}),
-  provideStore({selectedRepo, repos}),
+  provideStore(rootReducer),
   ...APP_SERVICES,
 ])
 .catch(err => console.error(err));
