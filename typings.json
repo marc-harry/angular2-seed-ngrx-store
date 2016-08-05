@@ -1,8 +1,7 @@
 {
   "name": "angular2-seed",
   "version": false,
-  "dependencies": {},
-  "ambientDependencies": {
+  "globalDependencies": {
     "core-js": "registry:dt/core-js#0.0.0+20160317120654",
     "node": "registry:dt/node#4.0.0+20160412142033"
   }

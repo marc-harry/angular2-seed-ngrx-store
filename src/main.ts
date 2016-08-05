@@ -4,6 +4,7 @@ import {HTTP_PROVIDERS} from '@angular/http';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 import {provideStore} from '@ngrx/store';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import {disableDeprecatedForms, provideForms} from '@angular/forms';
 
 import {App} from './app/app';
 
@@ -15,6 +16,8 @@ bootstrap(App, [
   ...HTTP_PROVIDERS,
   ...ROUTER_DIRECTIVES,  
   APP_ROUTER_PROVIDERS,
+  disableDeprecatedForms(),
+  provideForms(),
   provide(LocationStrategy, {useClass: HashLocationStrategy}),
   provideStore(rootReducer),
   ...APP_SERVICES,
