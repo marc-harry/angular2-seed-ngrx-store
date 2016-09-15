@@ -1,9 +1,9 @@
-import {combineReducers} from '@ngrx/store';
+import {combineReducers} from "@ngrx/store";
 
-import { selectedRepo } from './selectedRepo';
-import { repos } from './repos';
+import { selectedRepo } from "./selectedRepo";
+import { repos } from "./repos";
 
-export const rootReducer = combineReducers({ 
-    repos, 
+export const rootReducer = combineReducers({
+    repos,
     selectedRepo
 });

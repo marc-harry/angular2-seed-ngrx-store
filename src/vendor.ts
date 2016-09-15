@@ -1,11 +1,11 @@
 // Vendors
 
 // Angular 2
-import '@angular/platform-browser-dynamic';
-import '@angular/core';
-import '@angular/http';
-import '@angular/router';
-import '@angular/forms';
+import "@angular/platform-browser-dynamic";
+import "@angular/core";
+import "@angular/http";
+import "@angular/router";
+import "@angular/forms";
 
 
 // RxJS 5

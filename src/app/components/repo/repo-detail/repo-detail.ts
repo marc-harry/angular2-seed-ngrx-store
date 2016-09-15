@@ -1,22 +1,22 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Http} from '@angular/http';
-import {RepoService} from '../../../services/repoService';
-import {Observable, Subscription} from 'rxjs';
-import {Store} from '@ngrx/store';
-import {IAppStore} from '../../../IAppStore';
-import {UPDATE_FULLNAME} from '../../../actions/selectedRepoActionTypes';
+import {Component} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+import {Http} from "@angular/http";
+import {RepoService} from "../../../services/repoService";
+import {Observable, Subscription} from "rxjs";
+import {Store} from "@ngrx/store";
+import {IAppStore} from "../../../IAppStore";
+import {UPDATE_FULLNAME} from "../../../actions/selectedRepoActionTypes";
 
 @Component({
-  selector: 'repo-detail',
-  template: require('./repo-detail.html'),
-  styles: [require('./repo-detail.css')],
+  selector: "repo-detail",
+  template: require("./repo-detail.html"),
+  styles: [require("./repo-detail.css")],
   providers: []
 })
 export class RepoDetail {
   repo: Observable<any>;
   repoDetails = {};
-  repoModel: {fullName: string;} = {fullName: ""};
+  repoModel: {fullName: string; } = {fullName: ""};
   org: string = "";
   name: string = "";
   sub: Subscription;
@@ -24,13 +24,13 @@ export class RepoDetail {
 
   ngOnInit() {
     this.sub = this.curr.params.subscribe(params => {
-      this.org = params['org'];
-      this.name = params['name'];
+      this.org = params["org"];
+      this.name = params["name"];
 
       this.repoService.getRepo(this.org, this.name);
     });
 
-    this.repo = this.store.select(s => s.selectedRepo); 
+    this.repo = this.store.select(s => s.selectedRepo);
     this.repo.subscribe(r => {
       if (r !== null) {
         this.repoDetails = r;
@@ -43,7 +43,7 @@ export class RepoDetail {
       this.sub.unsubscribe();
     }
   }
-  
+
   updateName() {
     this.store.dispatch({type: UPDATE_FULLNAME, payload: this.repoModel.fullName});
   }

@@ -1,6 +1,6 @@
-import {ActionReducer, Action} from '@ngrx/store';
+import {ActionReducer, Action} from "@ngrx/store";
 
-import {SELECT_REPO, UPDATE_FULLNAME} from '../actions/selectedRepoActionTypes';
+import {SELECT_REPO, UPDATE_FULLNAME} from "../actions/selectedRepoActionTypes";
 
 export const selectedRepo: ActionReducer<any> = (state: any = null, action: Action) => {
     switch (action.type) {
@@ -11,4 +11,4 @@ export const selectedRepo: ActionReducer<any> = (state: any = null, action: Acti
         default:
             return state;
     }
-}
+};

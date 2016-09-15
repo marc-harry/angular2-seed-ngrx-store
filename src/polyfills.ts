@@ -6,6 +6,6 @@
 
 // CoreJS has all the polyfills you need
 
-import 'core-js';
-require('zone.js/dist/zone');
-require('zone.js/dist/long-stack-trace-zone');
+import "core-js";
+require("zone.js/dist/zone");
+require("zone.js/dist/long-stack-trace-zone");

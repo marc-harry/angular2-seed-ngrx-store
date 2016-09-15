@@ -1,5 +1,5 @@
-import {RepoService} from './repoService';
+import {RepoService} from "./repoService";
 
-export const APP_SERVICES = [ 
+export const APP_SERVICES = [
     RepoService,
 ];

@@ -1,14 +1,14 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Http} from '@angular/http';
-import {RepoService} from '../../../services/repoService';
-import {Observable, Subscription} from 'rxjs';
+import {Component} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+import {Http} from "@angular/http";
+import {RepoService} from "../../../services/repoService";
+import {Observable, Subscription} from "rxjs";
 
-import {Store} from '@ngrx/store';
-import {IAppStore} from '../../../IAppStore';
+import {Store} from "@ngrx/store";
+import {IAppStore} from "../../../IAppStore";
 
 @Component({
-  selector: 'repo-owner',
+  selector: "repo-owner",
   template: `<pre>this.owner = {{ owner | json }}</pre>`,
   styleUrls: [``],
   providers: []
@@ -19,18 +19,18 @@ export class RepoOwner {
   name: string = "";
   owner = {};
   sub: Subscription;
-  constructor(public curr:ActivatedRoute, public repoService: RepoService, private store: Store<IAppStore>) {}
+  constructor(public curr: ActivatedRoute, public repoService: RepoService, private store: Store<IAppStore>) {}
 
   ngOnInit() {
     this.repoDetails = this.store.select(s => s.selectedRepo);
     this.sub = this.curr.params.subscribe(params => {
-        this.org = params['org'];
-        this.name = params['name'];
+        this.org = params["org"];
+        this.name = params["name"];
 
         this.repoService.getRepo(this.org, this.name);
     });
 
-    this.repoDetails.subscribe(repo => { 
+    this.repoDetails.subscribe(repo => {
       if (repo)
         this.owner = repo.owner;
     });

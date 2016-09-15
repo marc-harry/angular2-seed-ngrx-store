@@ -1,6 +1,6 @@
-import {ActionReducer, Action} from '@ngrx/store';
+import {ActionReducer, Action} from "@ngrx/store";
 
-import {ADD_ITEMS, REMOVE_ALL_ITEMS} from '../actions/repoActionTypes';
+import {ADD_ITEMS, REMOVE_ALL_ITEMS} from "../actions/repoActionTypes";
 
 export const repos: ActionReducer<Array<any>> = (state: Array<any> = [], action: Action) => {
     switch (action.type) {
@@ -11,4 +11,4 @@ export const repos: ActionReducer<Array<any>> = (state: Array<any> = [], action:
         default:
             return state;
     }
-}
+};
