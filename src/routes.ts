@@ -1,5 +1,3 @@
-import { provideRouter } from '@angular/router';
-
 import { AppRoutes, Home } from "./app/app.routes";
 import { RepoRoutes, RepoGuards } from "./app/components/repo/repo.routes";
 
@@ -10,6 +8,5 @@ export const routes = [
 ];
 
 export const APP_ROUTER_PROVIDERS = [
-    provideRouter(routes),
     ...RepoGuards
 ];

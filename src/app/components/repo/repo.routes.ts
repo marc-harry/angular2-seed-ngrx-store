@@ -1,4 +1,4 @@
-import { RouterConfig } from "@angular/router";
+import { Routes } from "@angular/router";
 
 import {RepoBrowser} from './repo-browser/repo-browser';
 import {RepoList} from './repo-list/repo-list';
@@ -11,7 +11,7 @@ export const RepoGuards = [
     RepoGuard
 ];
 
-export const RepoRoutes: RouterConfig = [
+export const RepoRoutes: Routes = [
     {
         path: 'github',
         component: RepoBrowser,

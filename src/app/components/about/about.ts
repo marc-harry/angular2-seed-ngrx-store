@@ -6,9 +6,7 @@ import {Http} from '@angular/http';
   selector: 'about',
   template: require('./about.html'),
   styles: [require('./about.css')],
-  providers: [],
-  directives: [],
-  pipes: []
+  providers: []
 })
 export class About {
 

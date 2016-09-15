@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ROUTER_DIRECTIVES, ActivatedRoute} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Http} from '@angular/http';
 import {RepoService} from '../../../services/repoService';
 import {Observable, Subscription} from 'rxjs';
@@ -7,20 +7,11 @@ import {Store} from '@ngrx/store';
 import {IAppStore} from '../../../IAppStore';
 import {UPDATE_FULLNAME} from '../../../actions/selectedRepoActionTypes';
 
-import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
-import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-
 @Component({
   selector: 'repo-detail',
   template: require('./repo-detail.html'),
   styles: [require('./repo-detail.css')],
-  providers: [],
-  directives: [ 
-    ROUTER_DIRECTIVES,
-    MD_INPUT_DIRECTIVES,
-    MD_BUTTON_DIRECTIVES
-  ],
-  pipes: []
+  providers: []
 })
 export class RepoDetail {
   repo: Observable<any>;

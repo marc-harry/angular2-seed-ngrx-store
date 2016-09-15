@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute, ROUTER_DIRECTIVES} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Http} from '@angular/http';
 import {RepoService} from '../../../services/repoService';
 import {Observable, Subscription} from 'rxjs';
@@ -11,9 +11,7 @@ import {IAppStore} from '../../../IAppStore';
   selector: 'repo-owner',
   template: `<pre>this.owner = {{ owner | json }}</pre>`,
   styleUrls: [``],
-  providers: [],
-  directives: [ ROUTER_DIRECTIVES ],
-  pipes: []
+  providers: []
 })
 export class RepoOwner {
   repoDetails: Observable<any>;

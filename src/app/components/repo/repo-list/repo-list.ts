@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Observable, Subscription} from 'rxjs';
-import {ROUTER_DIRECTIVES, Router, ActivatedRoute} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 import {RepoService} from '../../../services/repoService';
 import {Store} from '@ngrx/store';
@@ -10,9 +10,7 @@ import {IAppStore} from '../../../IAppStore';
   selector: 'repo-list',
   template: require('./repo-list.html'),
   styles: [require('./repo-list.css')],
-  providers: [],
-  directives: [ ROUTER_DIRECTIVES ],
-  pipes: []
+  providers: []
 })
 export class RepoList {
   repos: Observable<any>

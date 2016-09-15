@@ -14,7 +14,14 @@ var webpackConfig = {
   },
 
   plugins: [
+    new webpack.optimize.OccurrenceOrderPlugin(true),
+    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.CommonsChunkPlugin({ name: ['app', 'vendor', 'polyfills'], minChunks: Infinity }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        unsafe : false
+      }
+    }),
   ],
 
   module: {
