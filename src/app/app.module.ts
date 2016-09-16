@@ -1,10 +1,10 @@
 import { NgModule }       from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-// import {provide} from '@angular/core';
 
 import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
+
 import { MdSidenavModule } from "@angular2-material/sidenav";
 import { MdListModule } from "@angular2-material/list";
 import { MdButtonModule } from "@angular2-material/button";
@@ -19,17 +19,17 @@ import {rootReducer} from "./reducers";
 
 import { App }   from "./app";
 
-import {RepoModule} from "./components/repo";
+import {RepoModule} from "./components/repo/repo.module";
+
 import {Home} from "./components/home/home";
 import {About} from "./components/about/about";
 
 import {APP_SERVICES} from "./services";
-import { routes, APP_ROUTER_PROVIDERS } from "../routes";
+import { AppRoutes, APP_ROUTER_PROVIDERS } from "./app.routes";
 
 @NgModule({
     declarations: [
         App,
-        ...RepoModule,
         Home,
         About
     ],
@@ -37,7 +37,7 @@ import { routes, APP_ROUTER_PROVIDERS } from "../routes";
         BrowserModule,
         HttpModule,
         FormsModule,
-        RouterModule.forRoot(routes, { useHash: true }),
+        RouterModule.forRoot(AppRoutes, { useHash: true }),
         MdListModule,
         MdSidenavModule,
         MdButtonModule,
@@ -45,7 +45,8 @@ import { routes, APP_ROUTER_PROVIDERS } from "../routes";
         MdIconModule,
         MdToolbarModule,
         MdTabsModule,
-        MdCardModule
+        MdCardModule,
+        RepoModule
     ],
     providers: [
         ...APP_ROUTER_PROVIDERS,
