@@ -7,8 +7,8 @@ import {RepoOwner} from "../repo-owner/repo-owner";
 
 @Component({
   selector: "repo-browser",
-  template: require("./repo-browser.html"),
-  styles: [require("./repo-browser.css")],
+  templateUrl: "./repo-browser.html",
+  styleUrls: ["./repo-browser.css"],
   providers: []
 })
 export class RepoBrowser {

@@ -8,8 +8,8 @@ import {IAppStore} from "../../../IAppStore";
 
 @Component({
   selector: "repo-list",
-  template: require("./repo-list.html"),
-  styles: [require("./repo-list.css")],
+  templateUrl: "./repo-list.html",
+  styleUrls: ["./repo-list.css"],
   providers: []
 })
 export class RepoList {

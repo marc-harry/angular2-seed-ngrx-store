@@ -4,8 +4,8 @@ import {Http} from "@angular/http";
 
 @Component({
   selector: "about",
-  template: require("./about.html"),
-  styles: [require("./about.css")],
+  templateUrl: "./about.html",
+  styleUrls: ["./about.css"],
   providers: []
 })
 export class About {

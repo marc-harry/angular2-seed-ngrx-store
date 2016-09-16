@@ -21,13 +21,18 @@ var webpackConfig = {
       compress: {
         unsafe : false
       }
-    }),
+    })
   ],
 
   module: {
     loaders: [
       // .ts files for TypeScript
-      { test: /\.ts$/, loader: 'awesome-typescript-loader' },
+      { test: /\.ts$/, loaders: [
+          '@angularclass/hmr-loader',
+          'awesome-typescript-loader', 
+          'angular2-template-loader'
+        ] 
+      },
       { test: /\.css$/, loader: 'raw-loader' },
       { test: /\.html$/, loader: 'raw-loader',
         exclude: ['src/index.html']
@@ -57,6 +62,7 @@ var defaultConfig = {
           // these packages have problems with their sourcemaps
           path.join(__dirname, 'node_modules', '@ngrx'),
           path.join(__dirname, 'node_modules', 'rxjs'),
+          path.join(__dirname, 'node_modules', '@angular'),
           path.join(__dirname, 'node_modules', '@angular2-material'),
         ]
       }
@@ -71,11 +77,6 @@ var defaultConfig = {
     root: [ path.join(__dirname, 'src') ],
     extensions: ['', '.ts', '.js'],
     modulesDirectories: ['node_modules']
-  },
-
-  devServer: {
-    historyApiFallback: true,
-    watchOptions: { aggregateTimeout: 300, poll: 1000 }
   },
 
   node: {

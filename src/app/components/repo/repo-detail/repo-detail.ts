@@ -9,8 +9,8 @@ import {UPDATE_FULLNAME} from "../../../actions/selectedRepoActionTypes";
 
 @Component({
   selector: "repo-detail",
-  template: require("./repo-detail.html"),
-  styles: [require("./repo-detail.css")],
+  templateUrl: "./repo-detail.html",
+  styleUrls: ["./repo-detail.css"],
   providers: []
 })
 export class RepoDetail {
